@@ -1,0 +1,108 @@
+Traceback (most recent call last):
+  File "train.py", line 110, in <module>
+    algorithm_params['use_stochastic_delay'], algorithm_params['delay'], algorithm_params['min_delay'])
+  File "/home/stud-lscholz/RLdelay/DelayResolvedRL/Gym(Stochastic)/env_stochasticdelay.py", line 17, in __init__
+    self.number_of_actions = self.env.action_space.n
+AttributeError: 'Box' object has no attribute 'n'
+Traceback (most recent call last):
+  File "train.py", line 110, in <module>
+    algorithm_params['use_stochastic_delay'], algorithm_params['delay'], algorithm_params['min_delay'])
+  File "/home/stud-lscholz/RLdelay/DelayResolvedRL/Gym(Stochastic)/env_stochasticdelay.py", line 17, in __init__
+    self.number_of_actions = self.env.action_space.n
+AttributeError: 'Box' object has no attribute 'n'
+Traceback (most recent call last):
+  File "train.py", line 110, in <module>
+    algorithm_params['use_stochastic_delay'], algorithm_params['delay'], algorithm_params['min_delay'])
+  File "/home/stud-lscholz/RLdelay/DelayResolvedRL/Gym(Stochastic)/env_stochasticdelay.py", line 17, in __init__
+    self.number_of_actions = self.env.action_space.n
+AttributeError: 'Box' object has no attribute 'n'
+Traceback (most recent call last):
+  File "train.py", line 110, in <module>
+    algorithm_params['use_stochastic_delay'], algorithm_params['delay'], algorithm_params['min_delay'])
+  File "/home/stud-lscholz/RLdelay/DelayResolvedRL/Gym(Stochastic)/env_stochasticdelay.py", line 17, in __init__
+    self.number_of_actions = self.env.action_space.n
+AttributeError: 'Box' object has no attribute 'n'
+Traceback (most recent call last):
+  File "train.py", line 110, in <module>
+    algorithm_params['use_stochastic_delay'], algorithm_params['delay'], algorithm_params['min_delay'])
+  File "/home/stud-lscholz/RLdelay/DelayResolvedRL/Gym(Stochastic)/env_stochasticdelay.py", line 17, in __init__
+    self.number_of_actions = self.env.action_space.n
+AttributeError: 'Box' object has no attribute 'n'
+Traceback (most recent call last):
+  File "train.py", line 110, in <module>
+    algorithm_params['use_stochastic_delay'], algorithm_params['delay'], algorithm_params['min_delay'])
+  File "/home/stud-lscholz/RLdelay/DelayResolvedRL/Gym(Stochastic)/env_stochasticdelay.py", line 17, in __init__
+    self.number_of_actions = self.env.action_space.n
+AttributeError: 'Box' object has no attribute 'n'
+Traceback (most recent call last):
+  File "train.py", line 110, in <module>
+    algorithm_params['use_stochastic_delay'], algorithm_params['delay'], algorithm_params['min_delay'])
+  File "/home/stud-lscholz/RLdelay/DelayResolvedRL/Gym(Stochastic)/env_stochasticdelay.py", line 17, in __init__
+    self.number_of_actions = self.env.action_space.n
+AttributeError: 'Box' object has no attribute 'n'
+Traceback (most recent call last):
+  File "train.py", line 110, in <module>
+    algorithm_params['use_stochastic_delay'], algorithm_params['delay'], algorithm_params['min_delay'])
+  File "/home/stud-lscholz/RLdelay/DelayResolvedRL/Gym(Stochastic)/env_stochasticdelay.py", line 17, in __init__
+    self.number_of_actions = self.env.action_space.n
+AttributeError: 'Box' object has no attribute 'n'
+Traceback (most recent call last):
+  File "train.py", line 110, in <module>
+    algorithm_params['use_stochastic_delay'], algorithm_params['delay'], algorithm_params['min_delay'])
+  File "/home/stud-lscholz/RLdelay/DelayResolvedRL/Gym(Stochastic)/env_stochasticdelay.py", line 17, in __init__
+    self.number_of_actions = self.env.action_space.n
+AttributeError: 'Box' object has no attribute 'n'
+Traceback (most recent call last):
+  File "train.py", line 110, in <module>
+    algorithm_params['use_stochastic_delay'], algorithm_params['delay'], algorithm_params['min_delay'])
+  File "/home/stud-lscholz/RLdelay/DelayResolvedRL/Gym(Stochastic)/env_stochasticdelay.py", line 17, in __init__
+    self.number_of_actions = self.env.action_space.n
+AttributeError: 'Box' object has no attribute 'n'
+Traceback (most recent call last):
+  File "train.py", line 110, in <module>
+    algorithm_params['use_stochastic_delay'], algorithm_params['delay'], algorithm_params['min_delay'])
+  File "/home/stud-lscholz/RLdelay/DelayResolvedRL/Gym(Stochastic)/env_stochasticdelay.py", line 17, in __init__
+    self.number_of_actions = self.env.action_space.n
+AttributeError: 'Box' object has no attribute 'n'
+Traceback (most recent call last):
+  File "train.py", line 110, in <module>
+    algorithm_params['use_stochastic_delay'], algorithm_params['delay'], algorithm_params['min_delay'])
+  File "/home/stud-lscholz/RLdelay/DelayResolvedRL/Gym(Stochastic)/env_stochasticdelay.py", line 17, in __init__
+    self.number_of_actions = self.env.action_space.n
+AttributeError: 'Box' object has no attribute 'n'
+Traceback (most recent call last):
+  File "train.py", line 110, in <module>
+    algorithm_params['use_stochastic_delay'], algorithm_params['delay'], algorithm_params['min_delay'])
+  File "/home/stud-lscholz/RLdelay/DelayResolvedRL/Gym(Stochastic)/env_stochasticdelay.py", line 17, in __init__
+    self.number_of_actions = self.env.action_space.n
+AttributeError: 'Box' object has no attribute 'n'
+Traceback (most recent call last):
+  File "train.py", line 110, in <module>
+    algorithm_params['use_stochastic_delay'], algorithm_params['delay'], algorithm_params['min_delay'])
+  File "/home/stud-lscholz/RLdelay/DelayResolvedRL/Gym(Stochastic)/env_stochasticdelay.py", line 17, in __init__
+    self.number_of_actions = self.env.action_space.n
+AttributeError: 'Box' object has no attribute 'n'
+Traceback (most recent call last):
+  File "train.py", line 110, in <module>
+    algorithm_params['use_stochastic_delay'], algorithm_params['delay'], algorithm_params['min_delay'])
+  File "/home/stud-lscholz/RLdelay/DelayResolvedRL/Gym(Stochastic)/env_stochasticdelay.py", line 17, in __init__
+    self.number_of_actions = self.env.action_space.n
+AttributeError: 'Box' object has no attribute 'n'
+Traceback (most recent call last):
+  File "train.py", line 110, in <module>
+    algorithm_params['use_stochastic_delay'], algorithm_params['delay'], algorithm_params['min_delay'])
+  File "/home/stud-lscholz/RLdelay/DelayResolvedRL/Gym(Stochastic)/env_stochasticdelay.py", line 17, in __init__
+    self.number_of_actions = self.env.action_space.n
+AttributeError: 'Box' object has no attribute 'n'
+Traceback (most recent call last):
+  File "train.py", line 110, in <module>
+    algorithm_params['use_stochastic_delay'], algorithm_params['delay'], algorithm_params['min_delay'])
+  File "/home/stud-lscholz/RLdelay/DelayResolvedRL/Gym(Stochastic)/env_stochasticdelay.py", line 17, in __init__
+    self.number_of_actions = self.env.action_space.n
+AttributeError: 'Box' object has no attribute 'n'
+Traceback (most recent call last):
+  File "train.py", line 110, in <module>
+    algorithm_params['use_stochastic_delay'], algorithm_params['delay'], algorithm_params['min_delay'])
+  File "/home/stud-lscholz/RLdelay/DelayResolvedRL/Gym(Stochastic)/env_stochasticdelay.py", line 17, in __init__
+    self.number_of_actions = self.env.action_space.n
+AttributeError: 'Box' object has no attribute 'n'

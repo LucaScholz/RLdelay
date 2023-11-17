@@ -1,0 +1,758 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__main__.py", line 22, in <module>
+    run(parse_args(*args))
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__init__.py", line 66, in run
+    list(iterate_episodes(run_cls, checkpoint_path))
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__init__.py", line 35, in iterate_episodes
+    run_instance = run_cls()
+                   ^^^^^^^^^
+  File "<string>", line 12, in __init__
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/training.py", line 34, in __post_init__
+    self.agent = self.Agent(self.Env)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 17, in __init__
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/dcac.py", line 24, in __post_init__
+    with Env() as env:
+         ^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 124, in __init__
+    super().__init__(env)
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 32, in __init__
+    self.transition = (self.reset(), 0., True, {})
+                       ^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 36, in reset
+    return self.observation(self.env.reset())
+                            ^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/wrappers_rd.py", line 65, in reset
+    self.send_observation((first_observation, 0., False, {}, 0, 1))  # TODO : initialize this better
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/wrappers_rd.py", line 152, in send_observation
+    alpha, = sample(self.obs_delay_range, 1)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/.conda/envs/rlrd/lib/python3.11/random.py", line 456, in sample
+    raise ValueError("Sample larger than population or is negative")
+ValueError: Sample larger than population or is negative
+=== specification ====================================================
++: rlrd.training:Training
+epochs: 10
+rounds: 50
+steps: 2000
+stats_window: null
+seed: 0
+tag: ''
+Env:
+   +: rlrd.envs:RandomDelayEnv
+   seed_val: 0
+   id: Pendulum-v0
+   frame_skip: 0
+   min_observation_delay: 1
+   sup_observation_delay: 1
+   min_action_delay: 0
+   sup_action_delay: 3
+   real_world_sampler: 0
+Test:
+   +: rlrd.testing:Test
+   workers: 1
+   number: 1
+   device: cpu
+Agent:
+   +: rlrd.dcac:Agent
+   batchsize: 128
+   memory_size: 1000000
+   lr: 0.0003
+   discount: 0.99
+   target_update: 0.005
+   reward_scale: 5.0
+   entropy_scale: 1.0
+   start_training: 10000
+   device: cuda
+   training_steps: 1.0
+   loss_alpha: 0.2
+   rtac: false
+   Model:
+      +: rlrd.dcac_models:Mlp
+      hidden_units: 256
+      num_critics: 2
+      act_delay: true
+      obs_delay: true
+   OutputNorm:
+      +: rlrd.nn:PopArt
+      beta: 0.0003
+      zero_debias: true
+      start_pop: 8
+__format_version__: '3'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__main__.py", line 22, in <module>
+    run(parse_args(*args))
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__init__.py", line 66, in run
+    list(iterate_episodes(run_cls, checkpoint_path))
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__init__.py", line 35, in iterate_episodes
+    run_instance = run_cls()
+                   ^^^^^^^^^
+  File "<string>", line 12, in __init__
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/training.py", line 34, in __post_init__
+    self.agent = self.Agent(self.Env)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 17, in __init__
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/dcac.py", line 24, in __post_init__
+    with Env() as env:
+         ^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 124, in __init__
+    super().__init__(env)
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 32, in __init__
+    self.transition = (self.reset(), 0., True, {})
+                       ^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 36, in reset
+    return self.observation(self.env.reset())
+                            ^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/wrappers_rd.py", line 65, in reset
+    self.send_observation((first_observation, 0., False, {}, 0, 1))  # TODO : initialize this better
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/wrappers_rd.py", line 152, in send_observation
+    alpha, = sample(self.obs_delay_range, 1)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/.conda/envs/rlrd/lib/python3.11/random.py", line 456, in sample
+    raise ValueError("Sample larger than population or is negative")
+ValueError: Sample larger than population or is negative
+=== specification ====================================================
++: rlrd.training:Training
+epochs: 10
+rounds: 50
+steps: 2000
+stats_window: null
+seed: 0
+tag: ''
+Env:
+   +: rlrd.envs:RandomDelayEnv
+   seed_val: 0
+   id: Pendulum-v0
+   frame_skip: 0
+   min_observation_delay: 2
+   sup_observation_delay: 2
+   min_action_delay: 0
+   sup_action_delay: 3
+   real_world_sampler: 0
+Test:
+   +: rlrd.testing:Test
+   workers: 1
+   number: 1
+   device: cpu
+Agent:
+   +: rlrd.dcac:Agent
+   batchsize: 128
+   memory_size: 1000000
+   lr: 0.0003
+   discount: 0.99
+   target_update: 0.005
+   reward_scale: 5.0
+   entropy_scale: 1.0
+   start_training: 10000
+   device: cuda
+   training_steps: 1.0
+   loss_alpha: 0.2
+   rtac: false
+   Model:
+      +: rlrd.dcac_models:Mlp
+      hidden_units: 256
+      num_critics: 2
+      act_delay: true
+      obs_delay: true
+   OutputNorm:
+      +: rlrd.nn:PopArt
+      beta: 0.0003
+      zero_debias: true
+      start_pop: 8
+__format_version__: '3'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__main__.py", line 22, in <module>
+    run(parse_args(*args))
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__init__.py", line 66, in run
+    list(iterate_episodes(run_cls, checkpoint_path))
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__init__.py", line 35, in iterate_episodes
+    run_instance = run_cls()
+                   ^^^^^^^^^
+  File "<string>", line 12, in __init__
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/training.py", line 34, in __post_init__
+    self.agent = self.Agent(self.Env)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 17, in __init__
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/dcac.py", line 24, in __post_init__
+    with Env() as env:
+         ^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 124, in __init__
+    super().__init__(env)
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 32, in __init__
+    self.transition = (self.reset(), 0., True, {})
+                       ^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 36, in reset
+    return self.observation(self.env.reset())
+                            ^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/wrappers_rd.py", line 65, in reset
+    self.send_observation((first_observation, 0., False, {}, 0, 1))  # TODO : initialize this better
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/wrappers_rd.py", line 152, in send_observation
+    alpha, = sample(self.obs_delay_range, 1)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/.conda/envs/rlrd/lib/python3.11/random.py", line 456, in sample
+    raise ValueError("Sample larger than population or is negative")
+ValueError: Sample larger than population or is negative
+=== specification ====================================================
++: rlrd.training:Training
+epochs: 10
+rounds: 50
+steps: 2000
+stats_window: null
+seed: 0
+tag: ''
+Env:
+   +: rlrd.envs:RandomDelayEnv
+   seed_val: 0
+   id: Pendulum-v0
+   frame_skip: 0
+   min_observation_delay: 3
+   sup_observation_delay: 3
+   min_action_delay: 0
+   sup_action_delay: 3
+   real_world_sampler: 0
+Test:
+   +: rlrd.testing:Test
+   workers: 1
+   number: 1
+   device: cpu
+Agent:
+   +: rlrd.dcac:Agent
+   batchsize: 128
+   memory_size: 1000000
+   lr: 0.0003
+   discount: 0.99
+   target_update: 0.005
+   reward_scale: 5.0
+   entropy_scale: 1.0
+   start_training: 10000
+   device: cuda
+   training_steps: 1.0
+   loss_alpha: 0.2
+   rtac: false
+   Model:
+      +: rlrd.dcac_models:Mlp
+      hidden_units: 256
+      num_critics: 2
+      act_delay: true
+      obs_delay: true
+   OutputNorm:
+      +: rlrd.nn:PopArt
+      beta: 0.0003
+      zero_debias: true
+      start_pop: 8
+__format_version__: '3'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__main__.py", line 22, in <module>
+    run(parse_args(*args))
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__init__.py", line 66, in run
+    list(iterate_episodes(run_cls, checkpoint_path))
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__init__.py", line 35, in iterate_episodes
+    run_instance = run_cls()
+                   ^^^^^^^^^
+  File "<string>", line 12, in __init__
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/training.py", line 34, in __post_init__
+    self.agent = self.Agent(self.Env)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 17, in __init__
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/dcac.py", line 24, in __post_init__
+    with Env() as env:
+         ^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 124, in __init__
+    super().__init__(env)
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 32, in __init__
+    self.transition = (self.reset(), 0., True, {})
+                       ^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 36, in reset
+    return self.observation(self.env.reset())
+                            ^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/wrappers_rd.py", line 65, in reset
+    self.send_observation((first_observation, 0., False, {}, 0, 1))  # TODO : initialize this better
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/wrappers_rd.py", line 152, in send_observation
+    alpha, = sample(self.obs_delay_range, 1)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/.conda/envs/rlrd/lib/python3.11/random.py", line 456, in sample
+    raise ValueError("Sample larger than population or is negative")
+ValueError: Sample larger than population or is negative
+=== specification ====================================================
++: rlrd.training:Training
+epochs: 10
+rounds: 50
+steps: 2000
+stats_window: null
+seed: 0
+tag: ''
+Env:
+   +: rlrd.envs:RandomDelayEnv
+   seed_val: 0
+   id: Pendulum-v0
+   frame_skip: 0
+   min_observation_delay: 4
+   sup_observation_delay: 4
+   min_action_delay: 0
+   sup_action_delay: 3
+   real_world_sampler: 0
+Test:
+   +: rlrd.testing:Test
+   workers: 1
+   number: 1
+   device: cpu
+Agent:
+   +: rlrd.dcac:Agent
+   batchsize: 128
+   memory_size: 1000000
+   lr: 0.0003
+   discount: 0.99
+   target_update: 0.005
+   reward_scale: 5.0
+   entropy_scale: 1.0
+   start_training: 10000
+   device: cuda
+   training_steps: 1.0
+   loss_alpha: 0.2
+   rtac: false
+   Model:
+      +: rlrd.dcac_models:Mlp
+      hidden_units: 256
+      num_critics: 2
+      act_delay: true
+      obs_delay: true
+   OutputNorm:
+      +: rlrd.nn:PopArt
+      beta: 0.0003
+      zero_debias: true
+      start_pop: 8
+__format_version__: '3'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__main__.py", line 22, in <module>
+    run(parse_args(*args))
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__init__.py", line 66, in run
+    list(iterate_episodes(run_cls, checkpoint_path))
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__init__.py", line 35, in iterate_episodes
+    run_instance = run_cls()
+                   ^^^^^^^^^
+  File "<string>", line 12, in __init__
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/training.py", line 34, in __post_init__
+    self.agent = self.Agent(self.Env)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 17, in __init__
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/dcac.py", line 24, in __post_init__
+    with Env() as env:
+         ^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 124, in __init__
+    super().__init__(env)
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 32, in __init__
+    self.transition = (self.reset(), 0., True, {})
+                       ^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 36, in reset
+    return self.observation(self.env.reset())
+                            ^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/wrappers_rd.py", line 65, in reset
+    self.send_observation((first_observation, 0., False, {}, 0, 1))  # TODO : initialize this better
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/wrappers_rd.py", line 152, in send_observation
+    alpha, = sample(self.obs_delay_range, 1)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/.conda/envs/rlrd/lib/python3.11/random.py", line 456, in sample
+    raise ValueError("Sample larger than population or is negative")
+ValueError: Sample larger than population or is negative
+=== specification ====================================================
++: rlrd.training:Training
+epochs: 10
+rounds: 50
+steps: 2000
+stats_window: null
+seed: 0
+tag: ''
+Env:
+   +: rlrd.envs:RandomDelayEnv
+   seed_val: 0
+   id: Pendulum-v0
+   frame_skip: 0
+   min_observation_delay: 5
+   sup_observation_delay: 5
+   min_action_delay: 0
+   sup_action_delay: 3
+   real_world_sampler: 0
+Test:
+   +: rlrd.testing:Test
+   workers: 1
+   number: 1
+   device: cpu
+Agent:
+   +: rlrd.dcac:Agent
+   batchsize: 128
+   memory_size: 1000000
+   lr: 0.0003
+   discount: 0.99
+   target_update: 0.005
+   reward_scale: 5.0
+   entropy_scale: 1.0
+   start_training: 10000
+   device: cuda
+   training_steps: 1.0
+   loss_alpha: 0.2
+   rtac: false
+   Model:
+      +: rlrd.dcac_models:Mlp
+      hidden_units: 256
+      num_critics: 2
+      act_delay: true
+      obs_delay: true
+   OutputNorm:
+      +: rlrd.nn:PopArt
+      beta: 0.0003
+      zero_debias: true
+      start_pop: 8
+__format_version__: '3'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__main__.py", line 22, in <module>
+    run(parse_args(*args))
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__init__.py", line 66, in run
+    list(iterate_episodes(run_cls, checkpoint_path))
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__init__.py", line 35, in iterate_episodes
+    run_instance = run_cls()
+                   ^^^^^^^^^
+  File "<string>", line 12, in __init__
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/training.py", line 34, in __post_init__
+    self.agent = self.Agent(self.Env)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 17, in __init__
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/dcac.py", line 24, in __post_init__
+    with Env() as env:
+         ^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 124, in __init__
+    super().__init__(env)
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 32, in __init__
+    self.transition = (self.reset(), 0., True, {})
+                       ^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 36, in reset
+    return self.observation(self.env.reset())
+                            ^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/wrappers_rd.py", line 65, in reset
+    self.send_observation((first_observation, 0., False, {}, 0, 1))  # TODO : initialize this better
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/wrappers_rd.py", line 152, in send_observation
+    alpha, = sample(self.obs_delay_range, 1)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/.conda/envs/rlrd/lib/python3.11/random.py", line 456, in sample
+    raise ValueError("Sample larger than population or is negative")
+ValueError: Sample larger than population or is negative
+=== specification ====================================================
++: rlrd.training:Training
+epochs: 10
+rounds: 50
+steps: 2000
+stats_window: null
+seed: 0
+tag: ''
+Env:
+   +: rlrd.envs:RandomDelayEnv
+   seed_val: 0
+   id: Pendulum-v0
+   frame_skip: 0
+   min_observation_delay: 6
+   sup_observation_delay: 6
+   min_action_delay: 0
+   sup_action_delay: 3
+   real_world_sampler: 0
+Test:
+   +: rlrd.testing:Test
+   workers: 1
+   number: 1
+   device: cpu
+Agent:
+   +: rlrd.dcac:Agent
+   batchsize: 128
+   memory_size: 1000000
+   lr: 0.0003
+   discount: 0.99
+   target_update: 0.005
+   reward_scale: 5.0
+   entropy_scale: 1.0
+   start_training: 10000
+   device: cuda
+   training_steps: 1.0
+   loss_alpha: 0.2
+   rtac: false
+   Model:
+      +: rlrd.dcac_models:Mlp
+      hidden_units: 256
+      num_critics: 2
+      act_delay: true
+      obs_delay: true
+   OutputNorm:
+      +: rlrd.nn:PopArt
+      beta: 0.0003
+      zero_debias: true
+      start_pop: 8
+__format_version__: '3'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__main__.py", line 22, in <module>
+    run(parse_args(*args))
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__init__.py", line 66, in run
+    list(iterate_episodes(run_cls, checkpoint_path))
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__init__.py", line 35, in iterate_episodes
+    run_instance = run_cls()
+                   ^^^^^^^^^
+  File "<string>", line 12, in __init__
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/training.py", line 34, in __post_init__
+    self.agent = self.Agent(self.Env)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 17, in __init__
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/dcac.py", line 24, in __post_init__
+    with Env() as env:
+         ^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 124, in __init__
+    super().__init__(env)
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 32, in __init__
+    self.transition = (self.reset(), 0., True, {})
+                       ^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 36, in reset
+    return self.observation(self.env.reset())
+                            ^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/wrappers_rd.py", line 65, in reset
+    self.send_observation((first_observation, 0., False, {}, 0, 1))  # TODO : initialize this better
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/wrappers_rd.py", line 152, in send_observation
+    alpha, = sample(self.obs_delay_range, 1)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/.conda/envs/rlrd/lib/python3.11/random.py", line 456, in sample
+    raise ValueError("Sample larger than population or is negative")
+ValueError: Sample larger than population or is negative
+=== specification ====================================================
++: rlrd.training:Training
+epochs: 10
+rounds: 50
+steps: 2000
+stats_window: null
+seed: 0
+tag: ''
+Env:
+   +: rlrd.envs:RandomDelayEnv
+   seed_val: 0
+   id: Pendulum-v0
+   frame_skip: 0
+   min_observation_delay: 7
+   sup_observation_delay: 7
+   min_action_delay: 0
+   sup_action_delay: 3
+   real_world_sampler: 0
+Test:
+   +: rlrd.testing:Test
+   workers: 1
+   number: 1
+   device: cpu
+Agent:
+   +: rlrd.dcac:Agent
+   batchsize: 128
+   memory_size: 1000000
+   lr: 0.0003
+   discount: 0.99
+   target_update: 0.005
+   reward_scale: 5.0
+   entropy_scale: 1.0
+   start_training: 10000
+   device: cuda
+   training_steps: 1.0
+   loss_alpha: 0.2
+   rtac: false
+   Model:
+      +: rlrd.dcac_models:Mlp
+      hidden_units: 256
+      num_critics: 2
+      act_delay: true
+      obs_delay: true
+   OutputNorm:
+      +: rlrd.nn:PopArt
+      beta: 0.0003
+      zero_debias: true
+      start_pop: 8
+__format_version__: '3'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__main__.py", line 22, in <module>
+    run(parse_args(*args))
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__init__.py", line 66, in run
+    list(iterate_episodes(run_cls, checkpoint_path))
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__init__.py", line 35, in iterate_episodes
+    run_instance = run_cls()
+                   ^^^^^^^^^
+  File "<string>", line 12, in __init__
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/training.py", line 34, in __post_init__
+    self.agent = self.Agent(self.Env)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 17, in __init__
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/dcac.py", line 24, in __post_init__
+    with Env() as env:
+         ^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 124, in __init__
+    super().__init__(env)
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 32, in __init__
+    self.transition = (self.reset(), 0., True, {})
+                       ^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 36, in reset
+    return self.observation(self.env.reset())
+                            ^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/wrappers_rd.py", line 65, in reset
+    self.send_observation((first_observation, 0., False, {}, 0, 1))  # TODO : initialize this better
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/wrappers_rd.py", line 152, in send_observation
+    alpha, = sample(self.obs_delay_range, 1)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/.conda/envs/rlrd/lib/python3.11/random.py", line 456, in sample
+    raise ValueError("Sample larger than population or is negative")
+ValueError: Sample larger than population or is negative
+=== specification ====================================================
++: rlrd.training:Training
+epochs: 10
+rounds: 50
+steps: 2000
+stats_window: null
+seed: 0
+tag: ''
+Env:
+   +: rlrd.envs:RandomDelayEnv
+   seed_val: 0
+   id: Pendulum-v0
+   frame_skip: 0
+   min_observation_delay: 8
+   sup_observation_delay: 8
+   min_action_delay: 0
+   sup_action_delay: 3
+   real_world_sampler: 0
+Test:
+   +: rlrd.testing:Test
+   workers: 1
+   number: 1
+   device: cpu
+Agent:
+   +: rlrd.dcac:Agent
+   batchsize: 128
+   memory_size: 1000000
+   lr: 0.0003
+   discount: 0.99
+   target_update: 0.005
+   reward_scale: 5.0
+   entropy_scale: 1.0
+   start_training: 10000
+   device: cuda
+   training_steps: 1.0
+   loss_alpha: 0.2
+   rtac: false
+   Model:
+      +: rlrd.dcac_models:Mlp
+      hidden_units: 256
+      num_critics: 2
+      act_delay: true
+      obs_delay: true
+   OutputNorm:
+      +: rlrd.nn:PopArt
+      beta: 0.0003
+      zero_debias: true
+      start_pop: 8
+__format_version__: '3'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__main__.py", line 22, in <module>
+    run(parse_args(*args))
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__init__.py", line 66, in run
+    list(iterate_episodes(run_cls, checkpoint_path))
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__init__.py", line 35, in iterate_episodes
+    run_instance = run_cls()
+                   ^^^^^^^^^
+  File "<string>", line 12, in __init__
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/training.py", line 34, in __post_init__
+    self.agent = self.Agent(self.Env)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 17, in __init__
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/dcac.py", line 24, in __post_init__
+    with Env() as env:
+         ^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 124, in __init__
+    super().__init__(env)
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 32, in __init__
+    self.transition = (self.reset(), 0., True, {})
+                       ^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/envs.py", line 36, in reset
+    return self.observation(self.env.reset())
+                            ^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/wrappers_rd.py", line 65, in reset
+    self.send_observation((first_observation, 0., False, {}, 0, 1))  # TODO : initialize this better
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/wrappers_rd.py", line 152, in send_observation
+    alpha, = sample(self.obs_delay_range, 1)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/.conda/envs/rlrd/lib/python3.11/random.py", line 456, in sample
+    raise ValueError("Sample larger than population or is negative")
+ValueError: Sample larger than population or is negative
+=== specification ====================================================
++: rlrd.training:Training
+epochs: 10
+rounds: 50
+steps: 2000
+stats_window: null
+seed: 0
+tag: ''
+Env:
+   +: rlrd.envs:RandomDelayEnv
+   seed_val: 0
+   id: Pendulum-v0
+   frame_skip: 0
+   min_observation_delay: 9
+   sup_observation_delay: 9
+   min_action_delay: 0
+   sup_action_delay: 3
+   real_world_sampler: 0
+Test:
+   +: rlrd.testing:Test
+   workers: 1
+   number: 1
+   device: cpu
+Agent:
+   +: rlrd.dcac:Agent
+   batchsize: 128
+   memory_size: 1000000
+   lr: 0.0003
+   discount: 0.99
+   target_update: 0.005
+   reward_scale: 5.0
+   entropy_scale: 1.0
+   start_training: 10000
+   device: cuda
+   training_steps: 1.0
+   loss_alpha: 0.2
+   rtac: false
+   Model:
+      +: rlrd.dcac_models:Mlp
+      hidden_units: 256
+      num_critics: 2
+      act_delay: true
+      obs_delay: true
+   OutputNorm:
+      +: rlrd.nn:PopArt
+      beta: 0.0003
+      zero_debias: true
+      start_pop: 8
+__format_version__: '3'
+/var/lib/slurm-llnl/slurmd/job24267/slurm_script: line 33: /home/stud-lscholz: Is a directory
+/var/lib/slurm-llnl/slurmd/job24267/slurm_script: line 34: /home/stud-lscholz: Is a directory

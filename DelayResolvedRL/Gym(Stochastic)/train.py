@@ -43,17 +43,17 @@ else:
     log_file_name = ""
 
 '''Environment Parameters'''
-game = 'CartPole-v0'
+game = 'Pendulum-v0'
 seed = 0  # Seed for Env, TF, Numpy
 num_frames = 1e6  # Million Frames
 num_episodes = 10000
-logs = {'log_interval': 100,  # Number of Episodes after which to print output/save batch output
+logs = {'log_interval': 1,  # Number of Episodes after which to print output/save batch output
         'log_file_name': log_file_name
         }
 
 '''Parameters of Algorithm'''
 algorithm_params = {'algorithm': algorithm,  # normal, delay, IS
-                    'batch_size': 32,
+                    'batch_size': 50,
                     'gamma': 0.99,
                     'learning_rate': 1e-3,
                     'start_epsilon': 1.0,

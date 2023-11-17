@@ -1,0 +1,46 @@
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2021 NVIDIA Corporation
+Built on Thu_Nov_18_09:45:30_PST_2021
+Cuda compilation tools, release 11.5, V11.5.119
+Build cuda_11.5.r11.5/compiler.30672275_0
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2021 NVIDIA Corporation
+Built on Thu_Nov_18_09:45:30_PST_2021
+Cuda compilation tools, release 11.5, V11.5.119
+Build cuda_11.5.r11.5/compiler.30672275_0
+/home/stud-lscholz/.conda/envs/MBRL2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:523: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/home/stud-lscholz/.conda/envs/MBRL2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:524: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/home/stud-lscholz/.conda/envs/MBRL2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:525: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/home/stud-lscholz/.conda/envs/MBRL2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:526: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/home/stud-lscholz/.conda/envs/MBRL2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:527: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/home/stud-lscholz/.conda/envs/MBRL2/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:532: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+Traceback (most recent call last):
+  File "mbexp.py", line 13, in <module>
+    from dmbrl.controllers.MPC import MPC
+  File "/home/stud-lscholz/RLdelay/delay-aware-MBRL/dmbrl/controllers/__init__.py", line 1, in <module>
+    from .MPC import MPC
+  File "/home/stud-lscholz/RLdelay/delay-aware-MBRL/dmbrl/controllers/MPC.py", line 7, in <module>
+    import tensorflow as tf
+  File "/home/stud-lscholz/.conda/envs/MBRL2/lib/python3.6/site-packages/tensorflow/__init__.py", line 22, in <module>
+    from tensorflow.python import pywrap_tensorflow  # pylint: disable=unused-import
+  File "/home/stud-lscholz/.conda/envs/MBRL2/lib/python3.6/site-packages/tensorflow/python/__init__.py", line 63, in <module>
+    from tensorflow.python.framework.framework_lib import *  # pylint: disable=redefined-builtin
+  File "/home/stud-lscholz/.conda/envs/MBRL2/lib/python3.6/site-packages/tensorflow/python/framework/framework_lib.py", line 25, in <module>
+    from tensorflow.python.framework.ops import Graph
+  File "/home/stud-lscholz/.conda/envs/MBRL2/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 54, in <module>
+    from tensorflow.python.platform import app
+  File "/home/stud-lscholz/.conda/envs/MBRL2/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 24, in <module>
+    from tensorflow.python.platform import flags
+  File "/home/stud-lscholz/.conda/envs/MBRL2/lib/python3.6/site-packages/tensorflow/python/platform/flags.py", line 25, in <module>
+    from absl.flags import *  # pylint: disable=wildcard-import
+  File "/home/stud-lscholz/.conda/envs/MBRL2/lib/python3.6/site-packages/absl/flags/__init__.py", line 35, in <module>
+    from absl.flags import _argument_parser
+  File "/home/stud-lscholz/.conda/envs/MBRL2/lib/python3.6/site-packages/absl/flags/_argument_parser.py", line 82, in <module>
+    class ArgumentParser(Generic[_T], metaclass=_ArgumentParserCache):
+TypeError: metaclass conflict: the metaclass of a derived class must be a (non-strict) subclass of the metaclasses of all its bases

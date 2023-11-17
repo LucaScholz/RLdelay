@@ -1,0 +1,22 @@
+#!/bin/bash
+#SBATCH --partition=student
+#SBATCH --account=student
+#SBATCH --ntasks=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=1G
+#SBATCH --job-name="lstm test"
+#SBATCH --gres=gpu:1
+#SBATCH -t 2-2:00
+nvcc --version
+export PATH="/path/to/your/miniconda3/envs/MBRL2/bin:$PATH"
+export LD_LIBRARY_PATH=/path/to/conda/env/MBRL2/lib:$LD_LIBRARY_PATH
+nvcc --version
+python mbexp.py -logdir ./log/DATS \
+	    -env gym_pendulum \
+	        -o exp_cfg.exp_cfg.ntrain_iters 200 \
+		    -o exp_cfg.sim_cfg.delay_hor 10\
+		        -o ctrl_cfg.prop_cfg.delay_step 10\
+			    -ca opt-type CEM \
+			        -ca model-type PE \
+				    -ca prop-type E

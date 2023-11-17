@@ -1,0 +1,29 @@
+
+CommandNotFoundError: Your shell has not been properly configured to use 'conda activate'.
+To initialize your shell, run
+
+    $ conda init <SHELL_NAME>
+
+Currently supported shells are:
+  - bash
+  - fish
+  - tcsh
+  - xonsh
+  - zsh
+  - powershell
+
+See 'conda init --help' for more information and options.
+
+IMPORTANT: You may need to close and restart your shell after running 'conda init'.
+
+
+Traceback (most recent call last):
+  File "/opt/anaconda/miniconda3/envs/shared_env/lib/python3.7/runpy.py", line 183, in _run_module_as_main
+    mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
+  File "/opt/anaconda/miniconda3/envs/shared_env/lib/python3.7/runpy.py", line 142, in _get_module_details
+    return _get_module_details(pkg_main_name, error)
+  File "/opt/anaconda/miniconda3/envs/shared_env/lib/python3.7/runpy.py", line 109, in _get_module_details
+    __import__(pkg_name)
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__init__.py", line 11, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'

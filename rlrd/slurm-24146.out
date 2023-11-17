@@ -1,0 +1,89 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__main__.py", line 22, in <module>
+    run(parse_args(*args))
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__init__.py", line 66, in run
+    list(iterate_episodes(run_cls, checkpoint_path))
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/__init__.py", line 35, in iterate_episodes
+    run_instance = run_cls()
+                   ^^^^^^^^^
+  File "<string>", line 12, in __init__
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/training.py", line 34, in __post_init__
+    self.agent = self.Agent(self.Env)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 17, in __init__
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/dcac.py", line 36, in __post_init__
+    self.model = model.to(device)
+                 ^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/RLdelay/rlrd/rlrd/sac_models.py", line 21, in to
+    return super().to(device=device)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/.conda/envs/rlrd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1145, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/.conda/envs/rlrd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 797, in _apply
+    module._apply(fn)
+  File "/home/stud-lscholz/.conda/envs/rlrd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 797, in _apply
+    module._apply(fn)
+  File "/home/stud-lscholz/.conda/envs/rlrd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 797, in _apply
+    module._apply(fn)
+  [Previous line repeated 1 more time]
+  File "/home/stud-lscholz/.conda/envs/rlrd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 820, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/home/stud-lscholz/.conda/envs/rlrd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1143, in convert
+    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud-lscholz/.conda/envs/rlrd/lib/python3.11/site-packages/torch/cuda/__init__.py", line 247, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+=== specification ====================================================
++: rlrd.training:Training
+epochs: 10
+rounds: 50
+steps: 2000
+stats_window: null
+seed: 0
+tag: ''
+Env:
+   +: rlrd.envs:RandomDelayEnv
+   seed_val: 0
+   id: Pendulum-v0
+   frame_skip: 0
+   min_observation_delay: 0
+   sup_observation_delay: 1
+   min_action_delay: 0
+   sup_action_delay: 1
+   real_world_sampler: 0
+Test:
+   +: rlrd.testing:Test
+   workers: 1
+   number: 1
+   device: cpu
+Agent:
+   +: rlrd.dcac:Agent
+   batchsize: 128
+   memory_size: 1000000
+   lr: 0.0003
+   discount: 0.99
+   target_update: 0.005
+   reward_scale: 5.0
+   entropy_scale: 1.0
+   start_training: 10000
+   device: cuda
+   training_steps: 1.0
+   loss_alpha: 0.2
+   rtac: false
+   Model:
+      +: rlrd.dcac_models:Mlp
+      hidden_units: 256
+      num_critics: 2
+      act_delay: true
+      obs_delay: true
+   OutputNorm:
+      +: rlrd.nn:PopArt
+      beta: 0.0003
+      zero_debias: true
+      start_pop: 8
+__format_version__: '3'

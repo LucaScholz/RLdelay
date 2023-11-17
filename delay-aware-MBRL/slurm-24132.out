@@ -1,0 +1,10 @@
+/home/stud-lscholz/.conda/envs/MBRL/lib/python3.6/site-packages/scipy/__init__.py:147: UserWarning: NumPy 1.14.5 or above is required for this version of SciPy (detected version 1.14.0)
+  UserWarning)
+Traceback (most recent call last):
+  File "mbexp.py", line 14, in <module>
+    from dmbrl.config import create_config
+  File "/home/stud-lscholz/RLdelay/delay-aware-MBRL/dmbrl/config/__init__.py", line 1, in <module>
+    from .default import create_config
+  File "/home/stud-lscholz/RLdelay/delay-aware-MBRL/dmbrl/config/default.py", line 9, in <module>
+    import gpflow
+ModuleNotFoundError: No module named 'gpflow'

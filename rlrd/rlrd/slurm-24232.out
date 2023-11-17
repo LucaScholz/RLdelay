@@ -1,0 +1,290 @@
+--- Now running SAC: ---
+=== specification ====================================================
++: rlrd.training:Training
+epochs: 1
+rounds: 5
+steps: 1000
+stats_window: null
+seed: 0
+tag: ''
+Env:
+   +: rlrd.envs:RandomDelayEnv
+   seed_val: 0
+   id: Pendulum-v0
+   frame_skip: 0
+   min_observation_delay: 0
+   sup_observation_delay: 2
+   min_action_delay: 0
+   sup_action_delay: 2
+   real_world_sampler: 0
+Test:
+   +: rlrd.testing:Test
+   workers: 1
+   number: 1
+   device: cpu
+Agent:
+   +: rlrd.sac:Agent
+   batchsize: 64
+   memory_size: 1000000
+   lr: 0.0003
+   discount: 0.99
+   target_update: 0.005
+   reward_scale: 5.0
+   entropy_scale: 1.0
+   start_training: 50
+   device: cuda
+   training_steps: 1.0
+   Model:
+      +: rlrd.sac_models_rd:Mlp
+      hidden_units: 256
+      num_critics: 2
+      act_delay: true
+      obs_delay: true
+      tbmdp: false
+   OutputNorm:
+      +: rlrd.nn:PopArt
+      beta: 0.0
+      zero_debias: false
+      start_pop: 8
+__format_version__: '3'
+
+=== epoch 1/1 ====== round 1/5 =======================================
+starting training
+  episodes                                        4
+  episode_length                             200.75
+  returns                              -1434.774401
+  average_reward                          -7.103521
+  round_time                 0 days 00:00:13.089969
+  episodes_test                                 4.0
+  episode_length_test                        200.25
+  returns_test                         -1350.779256
+  average_reward_test                     -6.466253
+  round_time_test            0 days 00:00:02.020433
+  round_time_total           0 days 00:00:13.113308
+  loss_actor                              61.893154
+  loss_critic                             413.81875
+  outputnorm_reward_mean                        0.0
+  outputnorm_entropy_mean                       0.0
+  outputnorm_reward_std                         1.0
+  outputnorm_entropy_std                        1.0
+  memory_size                            522.404211 
+
+=== epoch 1/1 ====== round 2/5 =======================================
+  episodes                                        4
+  episode_length                              200.0
+  returns                              -1232.227782
+  average_reward                          -6.447269
+  round_time                 0 days 00:00:13.713909
+  episodes_test                                 4.0
+  episode_length_test                        200.25
+  returns_test                         -1489.168403
+  average_reward_test                     -7.486414
+  round_time_test            0 days 00:00:01.802092
+  round_time_total           0 days 00:00:13.718346
+  loss_actor                             171.861125
+  loss_critic                             151.81975
+  outputnorm_reward_mean                        0.0
+  outputnorm_entropy_mean                       0.0
+  outputnorm_reward_std                         1.0
+  outputnorm_entropy_std                        1.0
+  memory_size                               1492.52 
+
+=== epoch 1/1 ====== round 3/5 =======================================
+  episodes                                        4
+  episode_length                              200.5
+  returns                              -1619.444788
+  average_reward                          -8.001935
+  round_time                 0 days 00:00:13.535625
+  episodes_test                                 4.0
+  episode_length_test                         200.5
+  returns_test                         -1597.518136
+  average_reward_test                     -7.982285
+  round_time_test            0 days 00:00:01.789651
+  round_time_total           0 days 00:00:13.538352
+  loss_actor                             267.916906
+  loss_critic                            171.214969
+  outputnorm_reward_mean                        0.0
+  outputnorm_entropy_mean                       0.0
+  outputnorm_reward_std                         1.0
+  outputnorm_entropy_std                        1.0
+  memory_size                               2487.53 
+
+=== epoch 1/1 ====== round 4/5 =======================================
+  episodes                                        4
+  episode_length                             200.75
+  returns                              -1262.037983
+  average_reward                          -6.097663
+  round_time                 0 days 00:00:13.555116
+  episodes_test                                 4.0
+  episode_length_test                         200.0
+  returns_test                         -1304.637911
+  average_reward_test                     -6.522585
+  round_time_test            0 days 00:00:01.776475
+  round_time_total           0 days 00:00:13.557215
+  loss_actor                             366.254781
+  loss_critic                            130.584836
+  outputnorm_reward_mean                        0.0
+  outputnorm_entropy_mean                       0.0
+  outputnorm_reward_std                         1.0
+  outputnorm_entropy_std                        1.0
+  memory_size                              3482.542 
+
+=== epoch 1/1 ====== round 5/5 =======================================
+  episodes                                        4
+  episode_length                             200.25
+  returns                              -1019.634314
+  average_reward                          -4.963621
+  round_time                 0 days 00:00:13.626783
+  episodes_test                                 4.0
+  episode_length_test                         201.0
+  returns_test                         -1088.011114
+  average_reward_test                     -5.343761
+  round_time_test            0 days 00:00:01.796783
+  round_time_total           0 days 00:00:13.629360
+  loss_actor                             447.118094
+  loss_critic                            127.293617
+  outputnorm_reward_mean                        0.0
+  outputnorm_entropy_mean                       0.0
+  outputnorm_reward_std                         1.0
+  outputnorm_entropy_std                        1.0
+  memory_size                              4477.559 
+
+
+--- Now running DCAC: ---
+=== specification ====================================================
++: rlrd.training:Training
+epochs: 1
+rounds: 5
+steps: 1000
+stats_window: null
+seed: 0
+tag: ''
+Env:
+   +: rlrd.envs:RandomDelayEnv
+   seed_val: 0
+   id: Pendulum-v0
+   frame_skip: 0
+   min_observation_delay: 0
+   sup_observation_delay: 2
+   min_action_delay: 0
+   sup_action_delay: 2
+   real_world_sampler: 0
+Test:
+   +: rlrd.testing:Test
+   workers: 1
+   number: 1
+   device: cpu
+Agent:
+   +: rlrd.dcac:Agent
+   batchsize: 64
+   memory_size: 1000000
+   lr: 0.0003
+   discount: 0.99
+   target_update: 0.005
+   reward_scale: 5.0
+   entropy_scale: 1.0
+   start_training: 50
+   device: cuda
+   training_steps: 1.0
+   loss_alpha: 0.2
+   rtac: false
+   Model:
+      +: rlrd.dcac_models:Mlp
+      hidden_units: 256
+      num_critics: 2
+      act_delay: true
+      obs_delay: true
+   OutputNorm:
+      +: rlrd.nn:PopArt
+      beta: 0.0003
+      zero_debias: true
+      start_pop: 8
+__format_version__: '3'
+
+=== epoch 1/1 ====== round 1/5 =======================================
+starting training
+  episodes                                    4
+  episode_length                         200.25
+  returns                          -1446.404653
+  average_reward                       -7.47968
+  round_time             0 days 00:00:32.348334
+  episodes_test                             4.0
+  episode_length_test                    200.75
+  returns_test                     -1388.217992
+  average_reward_test                 -6.685081
+  round_time_test        0 days 00:00:01.824087
+  round_time_total       0 days 00:00:32.352513
+  loss_total                        3232.810263
+  loss_critic                       3988.631842
+  loss_actor                         209.520181
+  memory_size                        513.108421 
+
+=== epoch 1/1 ====== round 2/5 =======================================
+  episodes                                    4
+  episode_length                          200.0
+  returns                          -1579.773974
+  average_reward                      -7.646236
+  round_time             0 days 00:00:34.307019
+  episodes_test                             4.0
+  episode_length_test                     201.0
+  returns_test                     -1710.296221
+  average_reward_test                 -8.300626
+  round_time_test        0 days 00:00:01.782911
+  round_time_total       0 days 00:00:34.311603
+  loss_total                        1996.730625
+  loss_critic                        2328.04125
+  loss_actor                          671.48025
+  memory_size                           1468.57 
+
+=== epoch 1/1 ====== round 3/5 =======================================
+  episodes                                    4
+  episode_length                         200.75
+  returns                          -1085.740925
+  average_reward                      -5.387801
+  round_time             0 days 00:00:34.405597
+  episodes_test                             4.0
+  episode_length_test                    200.75
+  returns_test                     -1345.843291
+  average_reward_test                 -6.579822
+  round_time_test        0 days 00:00:01.848184
+  round_time_total       0 days 00:00:34.407683
+  loss_total                         2634.45625
+  loss_critic                         3021.0145
+  loss_actor                        1088.230875
+  memory_size                          2448.594 
+
+=== epoch 1/1 ====== round 4/5 =======================================
+  episodes                                    4
+  episode_length                         200.25
+  returns                          -1093.516314
+  average_reward                      -5.662454
+  round_time             0 days 00:00:34.443287
+  episodes_test                             4.0
+  episode_length_test                     200.5
+  returns_test                      -935.152683
+  average_reward_test                 -4.650103
+  round_time_test        0 days 00:00:01.880610
+  round_time_total       0 days 00:00:34.447871
+  loss_total                           5568.904
+  loss_critic                          6629.627
+  loss_actor                        1326.029375
+  memory_size                          3428.658 
+
+=== epoch 1/1 ====== round 5/5 =======================================
+  episodes                                    4
+  episode_length                         200.25
+  returns                          -1115.524992
+  average_reward                       -5.66889
+  round_time             0 days 00:00:34.515971
+  episodes_test                             4.0
+  episode_length_test                     200.5
+  returns_test                     -1322.434811
+  average_reward_test                 -6.514652
+  round_time_test        0 days 00:00:01.836208
+  round_time_total       0 days 00:00:34.518575
+  loss_total                           4913.184
+  loss_critic                         5765.8395
+  loss_actor                        1502.559125
+  memory_size                          4408.698 
+
+

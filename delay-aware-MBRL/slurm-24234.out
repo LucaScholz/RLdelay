@@ -1,0 +1,33 @@
+
+
+Failed to import TensorFlow. Please note that TensorFlow is not installed by default when you install TensorFlow Probability. This is so that users can decide whether to install the GPU-enabled TensorFlow package. To use TensorFlow Probability, please install the most recent version of TensorFlow, by following instructions at https://tensorflow.org/install.
+
+
+Traceback (most recent call last):
+  File "mbexp.py", line 14, in <module>
+    from dmbrl.config import create_config
+  File "/home/stud-lscholz/RLdelay/delay-aware-MBRL/dmbrl/config/__init__.py", line 1, in <module>
+    from .default import create_config
+  File "/home/stud-lscholz/RLdelay/delay-aware-MBRL/dmbrl/config/default.py", line 9, in <module>
+    import gpflow
+  File "/home/stud-lscholz/.conda/envs/MBRL/lib/python3.6/site-packages/gpflow/__init__.py", line 17, in <module>
+    from . import (
+  File "/home/stud-lscholz/.conda/envs/MBRL/lib/python3.6/site-packages/gpflow/conditionals/__init__.py", line 3, in <module>
+    from . import conditionals, multioutput, sample_conditionals
+  File "/home/stud-lscholz/.conda/envs/MBRL/lib/python3.6/site-packages/gpflow/conditionals/conditionals.py", line 19, in <module>
+    from ..base import MeanAndVariance
+  File "/home/stud-lscholz/.conda/envs/MBRL/lib/python3.6/site-packages/gpflow/base.py", line 20, in <module>
+    import tensorflow_probability as tfp
+  File "/home/stud-lscholz/.conda/envs/MBRL/lib/python3.6/site-packages/tensorflow_probability/__init__.py", line 20, in <module>
+    from tensorflow_probability import substrates
+  File "/home/stud-lscholz/.conda/envs/MBRL/lib/python3.6/site-packages/tensorflow_probability/substrates/__init__.py", line 17, in <module>
+    from tensorflow_probability.python.internal import all_util
+  File "/home/stud-lscholz/.conda/envs/MBRL/lib/python3.6/site-packages/tensorflow_probability/python/__init__.py", line 138, in <module>
+    dir(globals()[pkg_name])  # Forces loading the package from its lazy loader.
+  File "/home/stud-lscholz/.conda/envs/MBRL/lib/python3.6/site-packages/tensorflow_probability/python/internal/lazy_loader.py", line 57, in __dir__
+    module = self._load()
+  File "/home/stud-lscholz/.conda/envs/MBRL/lib/python3.6/site-packages/tensorflow_probability/python/internal/lazy_loader.py", line 37, in _load
+    self._on_first_access()
+  File "/home/stud-lscholz/.conda/envs/MBRL/lib/python3.6/site-packages/tensorflow_probability/python/__init__.py", line 38, in _validate_tf_environment
+    import tensorflow.compat.v1 as tf
+ModuleNotFoundError: No module named 'tensorflow.compat.v1'

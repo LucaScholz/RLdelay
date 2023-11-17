@@ -1,0 +1,35 @@
+2023-10-13 07:29:23.981472: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2023-10-13 07:29:23.981524: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+Traceback (most recent call last):
+  File "mbexp.py", line 13, in <module>
+    from dmbrl.controllers.MPC import MPC
+  File "/home/stud-lscholz/RLdelay/delay-aware-MBRL/dmbrl/controllers/__init__.py", line 1, in <module>
+    from .MPC import MPC
+  File "/home/stud-lscholz/RLdelay/delay-aware-MBRL/dmbrl/controllers/MPC.py", line 7, in <module>
+    import tensorflow as tf
+  File "/home/stud-lscholz/.conda/envs/MBRL/lib/python3.6/site-packages/tensorflow/__init__.py", line 41, in <module>
+    from tensorflow.python.tools import module_util as _module_util
+  File "/home/stud-lscholz/.conda/envs/MBRL/lib/python3.6/site-packages/tensorflow/python/__init__.py", line 46, in <module>
+    from tensorflow.python import data
+  File "/home/stud-lscholz/.conda/envs/MBRL/lib/python3.6/site-packages/tensorflow/python/data/__init__.py", line 25, in <module>
+    from tensorflow.python.data import experimental
+  File "/home/stud-lscholz/.conda/envs/MBRL/lib/python3.6/site-packages/tensorflow/python/data/experimental/__init__.py", line 97, in <module>
+    from tensorflow.python.data.experimental import service
+  File "/home/stud-lscholz/.conda/envs/MBRL/lib/python3.6/site-packages/tensorflow/python/data/experimental/service/__init__.py", line 353, in <module>
+    from tensorflow.python.data.experimental.ops.data_service_ops import distribute
+  File "/home/stud-lscholz/.conda/envs/MBRL/lib/python3.6/site-packages/tensorflow/python/data/experimental/ops/data_service_ops.py", line 26, in <module>
+    from tensorflow.python.data.experimental.ops import compression_ops
+  File "/home/stud-lscholz/.conda/envs/MBRL/lib/python3.6/site-packages/tensorflow/python/data/experimental/ops/compression_ops.py", line 20, in <module>
+    from tensorflow.python.data.util import structure
+  File "/home/stud-lscholz/.conda/envs/MBRL/lib/python3.6/site-packages/tensorflow/python/data/util/structure.py", line 26, in <module>
+    from tensorflow.python.data.util import nest
+  File "/home/stud-lscholz/.conda/envs/MBRL/lib/python3.6/site-packages/tensorflow/python/data/util/nest.py", line 40, in <module>
+    from tensorflow.python.framework import sparse_tensor as _sparse_tensor
+  File "/home/stud-lscholz/.conda/envs/MBRL/lib/python3.6/site-packages/tensorflow/python/framework/sparse_tensor.py", line 28, in <module>
+    from tensorflow.python.framework import constant_op
+  File "/home/stud-lscholz/.conda/envs/MBRL/lib/python3.6/site-packages/tensorflow/python/framework/constant_op.py", line 34, in <module>
+    from tensorflow.python.framework import tensor_util
+  File "/home/stud-lscholz/.conda/envs/MBRL/lib/python3.6/site-packages/tensorflow/python/framework/tensor_util.py", line 39, in <module>
+    from tensorflow.python.framework import fast_tensor_util
+  File "tensorflow/python/framework/fast_tensor_util.pyx", line 1, in init tensorflow.python.framework.fast_tensor_util
+ValueError: numpy.ufunc size changed, may indicate binary incompatibility. Expected 216 from C header, got 192 from PyObject

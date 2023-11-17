@@ -1,0 +1,35 @@
+#!/bin/bash
+#SBATCH --partition=student
+#SBATCH --account=student
+#SBATCH --ntasks=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=1G
+#SBATCH --job-name="lstm test"
+#SBATCH --gres=gpu:1
+#SBATCH --time=7-00:00:00
+export PATH=/home/stud-lscholz/.conda/envs/rlrd/bin:$PATH
+for i in {10..20}; do
+    j=$((i+1))
+    python -m rlrd run rlrd:DcacTraining \
+    Env.id=Pendulum-v0 \
+    Env.min_observation_delay=$i \
+    Env.sup_observation_delay=$j \
+    Env.min_action_delay=$i \
+    Env.sup_action_delay=$j \
+    Agent.batchsize=128 \
+    Agent.memory_size=1000000 \
+    Agent.lr=0.0003 \
+    Agent.discount=0.99 \
+    Agent.target_update=0.005 \
+    Agent.reward_scale=5.0 \
+    Agent.entropy_scale=1.0 \
+    Agent.start_training=10000 \
+    Agent.device=cuda \
+    Agent.training_steps=1.0 \
+    Agent.loss_alpha=0.2 \
+    Agent.Model.hidden_units=256 \
+    Agent.Model.num_critics=2
+done
+~                                                  
+~                                                       

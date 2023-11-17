@@ -1,0 +1,8 @@
+numpy
+torch
+imageio
+imageio-ffmpeg
+pandas
+gym==0.19.0
+pyyaml
+wandb
