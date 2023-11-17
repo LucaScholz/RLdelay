@@ -13623,3 +13623,242 @@ starting training
   memory_size                       518446.3065 
 
 === epoch 6/10 ===== round 44/50 =====================================
+  episodes                                    9
+  episode_length                          211.0
+  returns                           -523.847811
+  average_reward                      -2.449575
+  round_time             0 days 00:13:40.833624
+  episodes_test                             9.0
+  episode_length_test                     211.0
+  returns_test                      -580.072473
+  average_reward_test                 -2.838763
+  round_time_test        0 days 00:00:04.548169
+  round_time_total       0 days 00:13:40.837456
+  loss_total                           5979.321
+  loss_critic                         7231.0315
+  loss_actor                         972.441563
+  memory_size                       520219.3525 
+
+=== epoch 6/10 ===== round 45/50 =====================================
+  episodes                                    8
+  episode_length                          211.0
+  returns                           -583.169785
+  average_reward                      -2.850845
+  round_time             0 days 00:13:39.152621
+  episodes_test                             9.0
+  episode_length_test                     211.0
+  returns_test                      -489.400699
+  average_reward_test                 -2.328304
+  round_time_test        0 days 00:00:04.530684
+  round_time_total       0 days 00:13:39.156467
+  loss_total                            6103.63
+  loss_critic                          7386.837
+  loss_actor                         970.788875
+  memory_size                       521991.3055 
+
+=== epoch 6/10 ===== round 46/50 =====================================
+  episodes                                    9
+  episode_length                          211.0
+  returns                           -549.639681
+  average_reward                      -2.537219
+  round_time             0 days 00:13:38.259457
+  episodes_test                             9.0
+  episode_length_test                     211.0
+  returns_test                      -581.429752
+  average_reward_test                 -2.742425
+  round_time_test        0 days 00:00:04.536672
+  round_time_total       0 days 00:13:38.263291
+  loss_total                          6170.9985
+  loss_critic                          7472.053
+  loss_actor                         966.758125
+  memory_size                        523764.365 
+
+=== epoch 6/10 ===== round 47/50 =====================================
+  episodes                                    8
+  episode_length                          211.0
+  returns                           -586.666309
+  average_reward                      -2.743318
+  round_time             0 days 00:13:38.605284
+  episodes_test                             9.0
+  episode_length_test                     211.0
+  returns_test                       -549.10938
+  average_reward_test                 -2.664459
+  round_time_test        0 days 00:00:04.596580
+  round_time_total       0 days 00:13:38.609132
+  loss_total                          6236.4735
+  loss_critic                           7555.39
+  loss_actor                         960.814875
+  memory_size                        525536.345 
+
+=== epoch 6/10 ===== round 48/50 =====================================
+  episodes                                    8
+  episode_length                          211.0
+  returns                           -551.304137
+  average_reward                      -2.601596
+  round_time             0 days 00:13:37.257463
+  episodes_test                             9.0
+  episode_length_test                     211.0
+  returns_test                      -519.048919
+  average_reward_test                 -2.462115
+  round_time_test        0 days 00:00:04.530852
+  round_time_total       0 days 00:13:37.261126
+  loss_total                           6242.248
+  loss_critic                          7562.755
+  loss_actor                         960.193062
+  memory_size                        527309.342 
+
+=== epoch 6/10 ===== round 49/50 =====================================
+  episodes                                    9
+  episode_length                          211.0
+  returns                           -640.276958
+  average_reward                      -3.060519
+  round_time             0 days 00:13:37.207718
+  episodes_test                             9.0
+  episode_length_test                     211.0
+  returns_test                       -550.49635
+  average_reward_test                  -2.60156
+  round_time_test        0 days 00:00:04.596565
+  round_time_total       0 days 00:13:37.211616
+  loss_total                          6300.6995
+  loss_critic                         7636.3515
+  loss_actor                          958.07925
+  memory_size                         529081.42 
+
+=== epoch 6/10 ===== round 50/50 =====================================
+  episodes                                    8
+  episode_length                          211.0
+  returns                           -529.998146
+  average_reward                      -2.557193
+  round_time             0 days 00:13:37.536143
+  episodes_test                             9.0
+  episode_length_test                     211.0
+  returns_test                      -514.527374
+  average_reward_test                  -2.50836
+  round_time_test        0 days 00:00:04.584138
+  round_time_total       0 days 00:13:37.540000
+  loss_total                           6361.899
+  loss_critic                         7713.4745
+  loss_actor                          955.53225
+  memory_size                        530854.314 
+
+
+=== epoch 7/10 ===== round 1/50 ======================================
+  episodes                                    9
+  episode_length                          211.0
+  returns                           -550.835957
+  average_reward                      -2.603781
+  round_time             0 days 00:12:39.231686
+  episodes_test                             9.0
+  episode_length_test                     211.0
+  returns_test                      -524.708462
+  average_reward_test                 -2.482742
+  round_time_test        0 days 00:00:04.669994
+  round_time_total       0 days 00:12:39.235624
+  loss_total                           6357.174
+  loss_critic                          7708.566
+  loss_actor                         951.564125
+  memory_size                         532625.82 
+
+=== epoch 7/10 ===== round 2/50 ======================================
+  episodes                                    8
+  episode_length                          211.0
+  returns                           -502.677206
+  average_reward                      -2.277372
+  round_time             0 days 00:12:45.623989
+  episodes_test                             9.0
+  episode_length_test                     211.0
+  returns_test                      -527.802735
+  average_reward_test                 -2.553074
+  round_time_test        0 days 00:00:04.574041
+  round_time_total       0 days 00:12:45.627615
+  loss_total                          6501.4185
+  loss_critic                          7890.106
+  loss_actor                             946.63
+  memory_size                        534398.774 
+
+=== epoch 7/10 ===== round 3/50 ======================================
+  episodes                                    9
+  episode_length                          211.0
+  returns                            -538.89511
+  average_reward                      -2.646964
+  round_time             0 days 00:12:49.297244
+  episodes_test                             9.0
+  episode_length_test                     211.0
+  returns_test                      -582.242796
+  average_reward_test                 -2.789953
+  round_time_test        0 days 00:00:04.565323
+  round_time_total       0 days 00:12:49.301067
+  loss_total                           6529.586
+  loss_critic                         7925.9595
+  loss_actor                         944.138438
+  memory_size                          536170.9 
+
+=== epoch 7/10 ===== round 4/50 ======================================
+  episodes                                    8
+  episode_length                          211.0
+  returns                           -560.839174
+  average_reward                      -2.631728
+  round_time             0 days 00:12:54.190523
+  episodes_test                             9.0
+  episode_length_test                     211.0
+  returns_test                      -501.295442
+  average_reward_test                 -2.445436
+  round_time_test        0 days 00:00:04.627329
+  round_time_total       0 days 00:12:54.194372
+  loss_total                          6652.5155
+  loss_critic                         8081.0325
+  loss_actor                           938.4715
+  memory_size                        537943.746 
+
+=== epoch 7/10 ===== round 5/50 ======================================
+  episodes                                    9
+  episode_length                          211.0
+  returns                           -592.368707
+  average_reward                      -2.887556
+  round_time             0 days 00:12:59.377283
+  episodes_test                             9.0
+  episode_length_test                     211.0
+  returns_test                       -637.47625
+  average_reward_test                 -3.106275
+  round_time_test        0 days 00:00:04.562107
+  round_time_total       0 days 00:12:59.381098
+  loss_total                          6732.8195
+  loss_critic                         8181.6915
+  loss_actor                         937.340438
+  memory_size                         539715.98 
+
+=== epoch 7/10 ===== round 6/50 ======================================
+  episodes                                    8
+  episode_length                          211.0
+  returns                           -560.930507
+  average_reward                      -2.619523
+  round_time             0 days 00:13:08.421138
+  episodes_test                             9.0
+  episode_length_test                     211.0
+  returns_test                      -513.149538
+  average_reward_test                 -2.435186
+  round_time_test        0 days 00:00:04.619204
+  round_time_total       0 days 00:13:08.425045
+  loss_total                           6724.776
+  loss_critic                         8172.1285
+  loss_actor                         935.342562
+  memory_size                        541488.718 
+
+=== epoch 7/10 ===== round 7/50 ======================================
+  episodes                                    9
+  episode_length                          211.0
+  returns                            -526.36147
+  average_reward                      -2.544191
+  round_time             0 days 00:13:14.680417
+  episodes_test                             9.0
+  episode_length_test                     211.0
+  returns_test                      -566.452359
+  average_reward_test                 -2.671793
+  round_time_test        0 days 00:00:04.526343
+  round_time_total       0 days 00:13:14.684203
+  loss_total                          6703.5835
+  loss_critic                          8146.435
+  loss_actor                         932.183437
+  memory_size                         543261.06 
+
+=== epoch 7/10 ===== round 8/50 ======================================
