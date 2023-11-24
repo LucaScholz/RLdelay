@@ -24,9 +24,13 @@ class Model(tf.keras.Model):
     """DQN Model"""
     def __init__(self, num_states, hidden_units, num_actions, alg, use_stochastic_delay, max_dimension):
         super(Model, self).__init__()
+        input_dim = num_states + 1
         if alg == 'IS':
             if use_stochastic_delay:
-                self.input_layer = tf.keras.layers.InputLayer(input_shape=(num_states + 1 + max_dimension,))
+                '''self.input_layer = tf.keras.layers.InputLayer(input_shape=(num_states + 1 + max_dimension,))'''
+                #self.input_layer = tf.keras.layers.InputLayer(input_shape=(input_dim,))
+                self.input_layer = tf.keras.layers.InputLayer(input_shape=(16,))
+
             else:
                 self.input_layer = tf.keras.layers.InputLayer(input_shape=(num_states + max_dimension,))
         else:
@@ -71,7 +75,24 @@ class DQN:
             self.action_buffer_padded = deque(maxlen=self.max_dimension + 1)
 
     def predict(self, inputs):
-        return self.model(np.atleast_2d(inputs.astype('float32')))
+        # Check if inputs is already a 2D array (batch of data)
+        flattened_inputs = []
+        for sample in inputs:
+        # Flatten and concatenate all elements of the sample
+            flattened_sample = np.concatenate([np.ravel(element) for element in sample])
+            flattened_inputs.append(flattened_sample)
+        
+    # Convert to numpy array
+        flattened_inputs = np.array(flattened_inputs)
+        if inputs.ndim == 1:
+            # If inputs is a 1D array (single sample), convert it to 2D
+            inputs = np.atleast_2d(inputs)
+        
+        # Ensure inputs are of type float32
+        inputs = flattened_inputs.astype('float32')
+
+        # Feed inputs into the model and return the predictions
+        return self.model(inputs)
 
     def fill_up_buffer(self):
         self.action_buffer_padded.clear()
@@ -93,7 +114,9 @@ class DQN:
         rewards = np.asarray([self.experience['r'][i] for i in ids])
         states_next = np.asarray([self.experience['s2'][i] for i in ids])
         dones = np.asarray([self.experience['done'][i] for i in ids])
+        
         value_next = np.max(TargetNet.predict(states_next), axis=1)
+        
         actual_values = np.where(dones, rewards, rewards + self.gamma * value_next)
 
         with tf.GradientTape() as tape:
@@ -132,8 +155,9 @@ def play_game(global_step, env, TrainNet, TargetNet, epsilon, copy_step):
     done = False
     observations = env.reset()
     observations_original = observations
-    if env.game_name.startswith('Frozen'):
+    '''if env.game_name.startswith('Frozen'):
         observations = to_onehot(env.state_space.n, observations)
+    '''
     if TrainNet.alg != 'normal':
         TrainNet.fill_up_buffer()
     losses = list()
@@ -144,7 +168,8 @@ def play_game(global_step, env, TrainNet, TargetNet, epsilon, copy_step):
         if TrainNet.alg == 'normal':
             action = TrainNet.get_action(observations, epsilon)
             prev_observations = observations
-            observations, reward, done = env.step(observations_original, action)
+            #observations, reward, done = env.step(observations_original, action)
+            observations, reward, done, info = env.step(action)
             observations_original = observations
             if env.game_name.startswith('Frozen'):
                 observations = to_onehot(env.state_space.n, observations)
@@ -163,13 +188,16 @@ def play_game(global_step, env, TrainNet, TargetNet, epsilon, copy_step):
                 action = TrainNet.get_action(observations, epsilon)
             prev_observations = observations
             prev_information_state = information_state
-            observations, reward, done = env.step(observations_original, action)
+            #observations, reward, done = env.step(observations_original, action)
+            print(action)
+            observations, reward, done ,info = env.step(action)
             observations_original = observations
-            if env.game_name.startswith('Frozen'):
-                observations = to_onehot(env.state_space.n, observations)
+            
             episode_step += 1
 
-            if env.train:
+            #if env.train:
+            if True:
+                
                 last_state_observed = (episode_step - 1 - env.turn_limit / 2) / env.turn_limit
                 TrainNet.action_buffer.append(action + 1)
                 for i in range(len_buffer + 1 - delay):
@@ -250,11 +278,18 @@ def test(env, TrainNet, logs, num_episodes):
 
 
 def train_agent(env, num_frames, model_params, algorithm_params, logs, verbose):
-    num_actions = env.number_of_actions
-    try:
+    #num_actions = env.number_of_actions
+    num_actions = 50
+    '''try:
         state_space = len(env.state_space.sample())
     except TypeError:
-        state_space = env.state_space.n
+        state_space = env.state_space.n 
+    '''
+    try:
+        #state_space = len(env.observation_space.sample())
+        state_space = len(env.observation_space.sample())
+    except TypeError:
+        state_space = env.observation_space.n    
 
     copy_step = model_params['copy_step']
     TrainNet = DQN(state_space, num_actions, model_params, algorithm_params)
