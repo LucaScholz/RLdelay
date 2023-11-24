@@ -8,6 +8,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "-1"  # Set CPU/GPU
 import numpy as np
 from agent import *
 from env_stochasticdelay import Environment
+from wrappers_rd import create_wrapped_env
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--algorithm", help="algorithm")
@@ -43,7 +44,7 @@ else:
     log_file_name = ""
 
 '''Environment Parameters'''
-game = 'Pendulum-v0'
+game = 'CartPole-v0'
 seed = 0  # Seed for Env, TF, Numpy
 num_frames = 1e6  # Million Frames
 num_episodes = 10000
@@ -58,17 +59,17 @@ algorithm_params = {'algorithm': algorithm,  # normal, delay, IS
                     'learning_rate': 1e-3,
                     'start_epsilon': 1.0,
                     'stop_epsilon': 1e-3,
-                    'epsilon_decay': 1e-4,
+                    'epsilon_decay': 1e-5,
                     'use_stochastic_delay': use_stochastic_delay,
                     'delay': delay,
-                    'min_delay': 0,
+                    'min_delay': 1,
                     'seed': seed
                     }
 model_params = {'hidden_units': [200],  # model architecture
                 'max_buffer_size': 1000,
                 'min_buffer_size': 100,
                 'copy_step': 25,  # 1 means no target network
-                'max_dimension': 10
+                'max_dimension': 50
                 }
 
 '''Runs'''
@@ -86,6 +87,7 @@ if verbose:
     else:
         time_file_name = save_dir + '/time_delay_{}'.format(delay)
 for run in range(runs):
+    print("test")
     if verbose:
         if use_stochastic_delay:
             reward_file_name_cur = reward_file_name + '_delay_{}_sd_run_{}'.format(delay, run)
@@ -106,8 +108,12 @@ for run in range(runs):
             f.write('Run: {} \n'.format(run))
             f.flush()
     '''Initialize Environment & Model'''
-    env = Environment(seed, game, algorithm_params['gamma'],
+    '''env = Environment(seed, game, algorithm_params['gamma'],
                       algorithm_params['use_stochastic_delay'], algorithm_params['delay'], algorithm_params['min_delay'])
+    '''
+    env = create_wrapped_env()
+    if env is None:
+        raise ValueError("Environment creation failed.")
     '''Train the Agent'''
     start_time = time.time()
     reward_history, loss_history = train_agent(env, num_frames, model_params, algorithm_params, logs, verbose)
